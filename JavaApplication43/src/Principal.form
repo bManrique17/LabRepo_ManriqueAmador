@@ -267,7 +267,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace pref="52" max="32767" attributes="0"/>
+                          <EmptySpace pref="20" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jb_eliminarPersonas" min="-2" max="-2" attributes="0"/>
@@ -438,7 +438,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="65" max="32767" attributes="0"/>
+                          <EmptySpace pref="33" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -566,6 +566,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="jb_color1">
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jb_color1MouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel45">
                   <Properties>
@@ -653,7 +656,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel54">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Calificacion"/>
+                    <Property name="text" type="java.lang.String" value="Calificacion(1-5)"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="cb_categoriaTecno1">
@@ -731,7 +734,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace pref="52" max="32767" attributes="0"/>
+                          <EmptySpace pref="20" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jb_eliminarArticulos" min="-2" max="-2" attributes="0"/>
@@ -1114,7 +1117,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="65" max="32767" attributes="0"/>
+                          <EmptySpace pref="33" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1240,7 +1243,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel48">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Calificacion"/>
+                    <Property name="text" type="java.lang.String" value="Calificacion(1-5)"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel36">
@@ -1340,6 +1343,10 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="jb_color">
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jb_colorMouseClicked"/>
+                    <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jb_colorMouseEntered"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JSpinner" name="califArticulo">
                 </Component>

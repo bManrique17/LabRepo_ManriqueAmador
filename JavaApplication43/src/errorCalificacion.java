@@ -8,6 +8,12 @@
  *
  * @author home
  */
-public class errorCalificacion {
+public class errorCalificacion extends Exception{
+
+    public errorCalificacion(String message) {
+        super("Debe estar entre 1 y 5 la calificacion");
+    }
+    
+    
     
 }

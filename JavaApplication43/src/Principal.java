@@ -1,7 +1,9 @@
 
+import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.JColorChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -333,7 +335,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(jb_eliminarPersonas)
@@ -362,6 +364,12 @@ public class Principal extends javax.swing.JFrame {
 
         TECNO1.setText("Tecnologico");
 
+        jb_color1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_color1MouseClicked(evt);
+            }
+        });
+
         jLabel45.setText("Duracion");
 
         jLabel46.setText("Edad a usar +");
@@ -382,7 +390,7 @@ public class Principal extends javax.swing.JFrame {
 
         cb_sexoArticulo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino", "Unisex" }));
 
-        jLabel54.setText("Calificacion");
+        jLabel54.setText("Calificacion(1-5)");
 
         cb_categoriaTecno1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Celular", "Tablet", "MP3", "Computadora", "Otro" }));
 
@@ -491,7 +499,7 @@ public class Principal extends javax.swing.JFrame {
                                 .addComponent(jLabel46)
                                 .addGap(1, 1, 1)
                                 .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -592,7 +600,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addComponent(jb_eliminarArticulos)
@@ -763,7 +771,7 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel34.setText("Descripcion");
 
-        jLabel48.setText("Calificacion");
+        jLabel48.setText("Calificacion(1-5)");
 
         jLabel36.setText("Cantidad");
 
@@ -808,6 +816,15 @@ public class Principal extends javax.swing.JFrame {
         ROPA.setText("Ropa");
 
         TECNO.setText("Tecnologico");
+
+        jb_color.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_colorMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jb_colorMouseEntered(evt);
+            }
+        });
 
         cb_categoriaRopa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Camisa", "Falda", "Pantalon", "Vestido", "Zapato", "Short", "Calzon", "Calcetin", "Otro" }));
 
@@ -894,7 +911,7 @@ public class Principal extends javax.swing.JFrame {
                                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(cb_categoriaTecno, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(tf_marca, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1272,39 +1289,48 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jTabbedPane1StateChanged
 
     private void jb_agregarArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_agregarArticuloActionPerformed
-        if (JUGUETE.isSelected()) {
-            Juguete temp = new Juguete();
-            temp.setDescripcion(tf_descripcion.getText());
-            temp.setCalificacion((Integer) califArticulo.getValue());
-            temp.setCantidad(Integer.parseInt(tf_cantidad.getText()));
-            temp.setSexo((String) cb_sexoArticulo.getSelectedItem());
-
-            temp.setDuracion(Integer.parseInt(tf_duracion.getText()));
-            temp.setEdadUso(Integer.parseInt(tf_edadUso.getText()));
-
-            listArticulos.add(temp);
-        } else {
-            if (ROPA.isSelected()) {
-                Ropa temp = new Ropa();
+        try {
+            if (JUGUETE.isSelected()) {
+                Juguete temp = new Juguete();
                 temp.setDescripcion(tf_descripcion.getText());
+                evaluarCalificacion((Integer) califArticulo.getValue());
                 temp.setCalificacion((Integer) califArticulo.getValue());
                 temp.setCantidad(Integer.parseInt(tf_cantidad.getText()));
                 temp.setSexo((String) cb_sexoArticulo.getSelectedItem());
 
-                temp.setCategoria((String) cb_categoriaRopa.getSelectedItem());
-                temp.setColor(jb_color.getBackground());
+                temp.setDuracion(Integer.parseInt(tf_duracion.getText()));
+                temp.setEdadUso(Integer.parseInt(tf_edadUso.getText()));
+
                 listArticulos.add(temp);
             } else {
-                artTecno temp = new artTecno();
-                temp.setDescripcion(tf_descripcion.getText());
-                temp.setCalificacion((Integer) califArticulo.getValue());
-                temp.setCantidad(Integer.parseInt(tf_cantidad.getText()));
-                temp.setSexo((String) cb_sexoArticulo.getSelectedItem());
+                if (ROPA.isSelected()) {
+                    Ropa temp = new Ropa();
+                    temp.setDescripcion(tf_descripcion.getText());
+                    temp.setCalificacion((Integer) califArticulo.getValue());
+                    temp.setCantidad(Integer.parseInt(tf_cantidad.getText()));
+                    temp.setSexo((String) cb_sexoArticulo.getSelectedItem());
 
-                temp.setCategoria((String) cb_categoriaTecno.getSelectedItem());
-                temp.setMarca(tf_marca.getText());
-                listArticulos.add(temp);
+                    temp.setCategoria((String) cb_categoriaRopa.getSelectedItem());
+                    temp.setColor(jb_color.getBackground());
+                    listArticulos.add(temp);
+                } else {
+                    artTecno temp = new artTecno();
+                    temp.setDescripcion(tf_descripcion.getText());
+                    temp.setCalificacion((Integer) califArticulo.getValue());
+                    temp.setCantidad(Integer.parseInt(tf_cantidad.getText()));
+                    temp.setSexo((String) cb_sexoArticulo.getSelectedItem());
+
+                    temp.setCategoria((String) cb_categoriaTecno.getSelectedItem());
+                    temp.setMarca(tf_marca.getText());
+                    listArticulos.add(temp);
+                }
             }
+
+        } catch (errorCalificacion x) {
+            JOptionPane.showMessageDialog(null, x);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Revisa los datos ingresados, ha ocurrido un eror");
         }
     }//GEN-LAST:event_jb_agregarArticuloActionPerformed
 
@@ -1321,22 +1347,30 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_tf_nombreAncestorAdded
 
     private void jb_agregarPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_agregarPersonaActionPerformed
-        Persona temp = new Persona();
-        temp.setNombre(tf_nombre.getText());
-        temp.setEdad(Integer.parseInt(tf_edad.getText()));
-        if (rd_M.isSelected()) {
-            temp.setSexo("Masculino");
-        } else {
-            temp.setSexo("Femenino");
+
+        try {
+            Persona temp = new Persona();
+            temp.setNombre(tf_nombre.getText());
+            temp.setEdad(Integer.parseInt(tf_edad.getText()));
+            if (rd_M.isSelected()) {
+                temp.setSexo("Masculino");
+            } else {
+                temp.setSexo("Femenino");
+            }
+            temp.setID(tf_ID.getText());
+            evaluarCalificacion((Integer) califPersona.getValue());
+            temp.setCalificacion((Integer) califPersona.getValue());
+            temp.setNumArticulos((temp.getEdad() / 10 + (temp.getEdad() - ((temp.getEdad() / 10) * 10))) / 2 + 3);
+            System.out.println("->articulos: " + temp.getNumArticulos());
+
+            listPersonas.add(temp);
+
+        } catch (errorCalificacion x) {
+            JOptionPane.showMessageDialog(null, x);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Revisa los datos ingresados, ha ocurrido un eror");
         }
-        temp.setID(tf_ID.getText());
-        temp.setCalificacion((Integer) califPersona.getValue());
-        temp.setNumArticulos((temp.getEdad() / 10 + (temp.getEdad() - ((temp.getEdad() / 10) * 10))) / 2 + 3);
-        System.out.println("->articulos: " + temp.getNumArticulos());
-
-        listPersonas.add(temp);
-
-        
 
     }//GEN-LAST:event_jb_agregarPersonaActionPerformed
 
@@ -1349,8 +1383,12 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_tf_IDActionPerformed
 
     private void jb_eliminarArticulosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_eliminarArticulosMouseClicked
+        try{
         listArticulos.remove(tablaArticulos.getSelectedRow());
         cargarContenedores();
+        }catch(Exception r){
+            JOptionPane.showMessageDialog(null,"Seleciones una fila");
+        }
     }//GEN-LAST:event_jb_eliminarArticulosMouseClicked
 
     private void jb_modificarArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_modificarArticuloActionPerformed
@@ -1358,44 +1396,50 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_modificarArticuloActionPerformed
 
     private void jb_modificarArticuloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_modificarArticuloMouseClicked
-        if (JUGUETE1.isSelected()) {
-            Juguete temp = (Juguete) cb_articulos.getSelectedItem();
-            temp.setDescripcion(tf_descripcion1.getText());
-            temp.setCalificacion((Integer) califArticulo1.getValue());
-            temp.setCantidad(Integer.parseInt(tf_cantidad1.getText()));
-            temp.setSexo((String) cb_sexoArticulo1.getSelectedItem());
+        try {
 
-            temp.setDuracion(Integer.parseInt(tf_duracion1.getText()));
-            temp.setEdadUso(Integer.parseInt(tf_edadUso1.getText()));
-
-            
-
-        } else {
-            if (ROPA1.isSelected()) {
-                Ropa temp = (Ropa) cb_articulos.getSelectedItem();
+            if (JUGUETE1.isSelected()) {
+                Juguete temp = (Juguete) cb_articulos.getSelectedItem();
                 temp.setDescripcion(tf_descripcion1.getText());
+                evaluarCalificacion((Integer) califArticulo1.getValue());
                 temp.setCalificacion((Integer) califArticulo1.getValue());
                 temp.setCantidad(Integer.parseInt(tf_cantidad1.getText()));
                 temp.setSexo((String) cb_sexoArticulo1.getSelectedItem());
 
-                temp.setCategoria((String) cb_categoriaRopa1.getSelectedItem());
-                temp.setColor(jb_color1.getBackground());
-
-                
+                temp.setDuracion(Integer.parseInt(tf_duracion1.getText()));
+                temp.setEdadUso(Integer.parseInt(tf_edadUso1.getText()));
 
             } else {
-                artTecno temp = (artTecno) cb_articulos.getSelectedItem();
-                temp.setDescripcion(tf_descripcion1.getText());
-                temp.setCalificacion((Integer) califArticulo1.getValue());
-                temp.setCantidad(Integer.parseInt(tf_cantidad1.getText()));
-                temp.setSexo((String) cb_sexoArticulo1.getSelectedItem());
+                if (ROPA1.isSelected()) {
+                    Ropa temp = (Ropa) cb_articulos.getSelectedItem();
+                    temp.setDescripcion(tf_descripcion1.getText());
+                    evaluarCalificacion((Integer) califArticulo1.getValue());
+                    temp.setCalificacion((Integer) califArticulo1.getValue());
+                    temp.setCantidad(Integer.parseInt(tf_cantidad1.getText()));
+                    temp.setSexo((String) cb_sexoArticulo1.getSelectedItem());
 
-                temp.setCategoria((String) cb_categoriaTecno1.getSelectedItem());
-                temp.setMarca(tf_marca1.getText());
+                    temp.setCategoria((String) cb_categoriaRopa1.getSelectedItem());
+                    temp.setColor(jb_color1.getBackground());
 
-                
+                } else {
+                    artTecno temp = (artTecno) cb_articulos.getSelectedItem();
+                    temp.setDescripcion(tf_descripcion1.getText());
+                    evaluarCalificacion((Integer) califArticulo1.getValue());
+                    temp.setCalificacion((Integer) califArticulo1.getValue());
+                    temp.setCantidad(Integer.parseInt(tf_cantidad1.getText()));
+                    temp.setSexo((String) cb_sexoArticulo1.getSelectedItem());
 
+                    temp.setCategoria((String) cb_categoriaTecno1.getSelectedItem());
+                    temp.setMarca(tf_marca1.getText());
+
+                }
             }
+
+        } catch (errorCalificacion x) {
+            JOptionPane.showMessageDialog(null, x);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Revisa los datos ingresados, ha ocurrido un eror");
         }
     }//GEN-LAST:event_jb_modificarArticuloMouseClicked
 
@@ -1404,8 +1448,13 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_tf_cantidad1ActionPerformed
 
     private void jb_eliminarPersonasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_eliminarPersonasMouseClicked
-        listPersonas.remove(tablaPersonas.getSelectedRow());
+        try{
+            listPersonas.remove(tablaPersonas.getSelectedRow());
         cargarContenedores();
+        }catch(Exception r){
+            JOptionPane.showMessageDialog(null,"Seleciones una fila");
+        }
+        
     }//GEN-LAST:event_jb_eliminarPersonasMouseClicked
 
     private void tf_ID1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_ID1ActionPerformed
@@ -1417,18 +1466,26 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_tf_nombre1AncestorAdded
 
     private void jb_modificarPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_modificarPersonaActionPerformed
-        Persona temp = (Persona) cb_personas.getSelectedItem();
-        temp.setNombre(tf_nombre1.getText());
-        temp.setEdad(Integer.parseInt(tf_edad1.getText()));
-        if (rd_M1.isSelected()) {
-            temp.setSexo("Masculino");
-        } else {
-            temp.setSexo("Femenino");
+        try {
+            Persona temp = (Persona) cb_personas.getSelectedItem();
+            temp.setNombre(tf_nombre1.getText());
+            temp.setEdad(Integer.parseInt(tf_edad1.getText()));
+            if (rd_M1.isSelected()) {
+                temp.setSexo("Masculino");
+            } else {
+                temp.setSexo("Femenino");
+            }
+            temp.setID(tf_ID1.getText());
+            temp.setCalificacion((Integer) califPersona1.getValue());
+            evaluarCalificacion((Integer) califPersona1.getValue());
+            temp.setNumArticulos((temp.getEdad() / 10 + (temp.getEdad() - ((temp.getEdad() / 10) * 10))) / 2 + 3);
+            System.out.println("->articulos: " + temp.getNumArticulos());
+        } catch (errorCalificacion x) {
+            JOptionPane.showMessageDialog(null, x);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Revisa los datos ingresados, ha ocurrido un eror");
         }
-        temp.setID(tf_ID1.getText());
-        temp.setCalificacion((Integer) califPersona1.getValue());
-        temp.setNumArticulos((temp.getEdad() / 10 + (temp.getEdad() - ((temp.getEdad() / 10) * 10))) / 2 + 3);
-        System.out.println("->articulos: " + temp.getNumArticulos());
     }//GEN-LAST:event_jb_modificarPersonaActionPerformed
 
     private void jb_modificarPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_modificarPersonaMouseClicked
@@ -1444,35 +1501,39 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_procesarMouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        DefaultTreeModel modelo = (DefaultTreeModel) ARBOL.getModel();
-        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelo.getRoot();
-        for (Persona p : listPersonas) {
-            DefaultMutableTreeNode nodo = new DefaultMutableTreeNode(p);
-            nodo.add(new DefaultMutableTreeNode(p.getNombre()));
-            nodo.add(new DefaultMutableTreeNode(p.getEdad()));
-            nodo.add(new DefaultMutableTreeNode(p.getID()));
-            nodo.add(new DefaultMutableTreeNode(p.getSexo()));
-            nodo.add(new DefaultMutableTreeNode(p.getCalificacion()));
 
-            DefaultMutableTreeNode articulos = new DefaultMutableTreeNode();
-            for (Articulo a : p.listArticulos) {
-                articulos.add(new DefaultMutableTreeNode(a));
+        try {
+            DefaultTreeModel modelo = (DefaultTreeModel) ARBOL.getModel();
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelo.getRoot();
+            for (Persona p : listPersonas) {
+                DefaultMutableTreeNode nodo = new DefaultMutableTreeNode(p);
+                nodo.add(new DefaultMutableTreeNode(p.getNombre()));
+                nodo.add(new DefaultMutableTreeNode(p.getEdad()));
+                nodo.add(new DefaultMutableTreeNode(p.getID()));
+                nodo.add(new DefaultMutableTreeNode(p.getSexo()));
+                nodo.add(new DefaultMutableTreeNode(p.getCalificacion()));
+
+                DefaultMutableTreeNode articulos = new DefaultMutableTreeNode();
+                for (Articulo a : p.listArticulos) {
+                    articulos.add(new DefaultMutableTreeNode(a));
+                }
+
+                nodo.add(articulos);
+                raiz.add(nodo);
+            }
+            modelo.reload();
+
+            DefaultListModel modelo1 = (DefaultListModel) LISTA.getModel();
+            for (Articulo a : listArticulos) {
+                if (!a.isDueno()) {
+                    modelo1.addElement(a);
+                }
             }
 
-            nodo.add(articulos);
-            raiz.add(nodo);
+            LISTA.setModel(modelo1);
+        } catch (Exception e) {
+
         }
-        modelo.reload();
-
-        DefaultListModel modelo1 = (DefaultListModel) LISTA.getModel();
-        for (Articulo a : listArticulos) {
-            if (!a.isDueno()) {
-                modelo1.addElement(a);
-            }
-        }
-
-        LISTA.setModel(modelo1);
-
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -1517,11 +1578,31 @@ public class Principal extends javax.swing.JFrame {
         try {
             ap1.escribirArchivo();
         } catch (Exception e) {
-            
+
         }
-        
+
         JOptionPane.showMessageDialog(null, "Infor guardada");
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jb_colorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_colorMouseClicked
+        Color c = JColorChooser.showDialog(this, "Seleccion de color", Color.white);
+        jb_color.setBackground(c);
+    }//GEN-LAST:event_jb_colorMouseClicked
+
+    private void jb_colorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_colorMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_colorMouseEntered
+
+    private void jb_color1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_color1MouseClicked
+        Color c = JColorChooser.showDialog(this, "Seleccion de color", Color.white);
+        jb_color.setBackground(c);
+    }//GEN-LAST:event_jb_color1MouseClicked
+
+    public void evaluarCalificacion(int calificacion) throws errorCalificacion {
+        if (calificacion < 1 || calificacion > 5) {
+            throw new errorCalificacion("Debe estar entre 1-5 la calificacion");
+        }
+    }
 
     /**
      * @param args the command line arguments

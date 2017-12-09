@@ -44,6 +44,9 @@ public class Ropa extends Articulo{
         this.color = color;
     }
 
-    
+    @Override
+    public String toString() {
+        return "Ropa->|" + super.toString();
+    }
     
 }

@@ -4,6 +4,17 @@
 public class Articulo {
     protected String descripcion,sexo;
     protected int calificacion,cantidad;
+    protected boolean dueno;
+
+    public boolean isDueno() {
+        return dueno;
+    }
+
+    public void setDueno(boolean dueno) {
+        this.dueno = dueno;
+    }
+    
+    
 
     public Articulo(String descripcion, String sexo, int calificacion, int cantidad) {
         this.descripcion = descripcion;

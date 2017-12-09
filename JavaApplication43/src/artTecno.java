@@ -29,6 +29,9 @@ public class artTecno extends Articulo{
     public void setMarca(String marca) {
         this.marca = marca;
     }
-    
+    @Override
+    public String toString() {
+        return "ArtTecno->|" + super.toString();
+    }
     
 }

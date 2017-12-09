@@ -27,5 +27,10 @@ public class Juguete extends Articulo{
         this.edadUso = edadUso;
     }
 
+    @Override
+    public String toString() {
+        return "Juguete->|" + super.toString();
+    }
+
     
 }

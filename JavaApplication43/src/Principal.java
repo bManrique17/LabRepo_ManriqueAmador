@@ -1,7 +1,10 @@
 
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -53,7 +56,6 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaPersonas = new javax.swing.JTable();
         jb_eliminarPersonas = new javax.swing.JButton();
-        jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         JUGUETE1 = new javax.swing.JRadioButton();
         ROPA1 = new javax.swing.JRadioButton();
@@ -133,7 +135,21 @@ public class Principal extends javax.swing.JFrame {
         cb_categoriaRopa = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         cb_sexoArticulo = new javax.swing.JComboBox<>();
+        jPanel9 = new javax.swing.JPanel();
+        cb_personas2 = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        ta_bitacora = new javax.swing.JTextArea();
+        jLabel18 = new javax.swing.JLabel();
+        jb_procesar = new javax.swing.JButton();
         noAdmin = new javax.swing.JDialog();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        ARBOL = new javax.swing.JTree();
+        jLabel19 = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        LISTA = new javax.swing.JList<>();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jb_admin = new javax.swing.JButton();
@@ -148,7 +164,7 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel11.setText("Calificacion (1-5)");
 
-        jb_modificarPersona.setText("Agregar");
+        jb_modificarPersona.setText("Modificar");
         jb_modificarPersona.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jb_modificarPersonaMouseClicked(evt);
@@ -334,19 +350,6 @@ public class Principal extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Eliminar personas", jPanel4);
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 440, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 477, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Agregar articulos", jPanel5);
 
         JUGUETE1.setText("Juguete");
 
@@ -967,6 +970,61 @@ public class Principal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Agregar articulos", jPanel8);
 
+        cb_personas2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel12.setText("Persona a procesar");
+
+        ta_bitacora.setColumns(20);
+        ta_bitacora.setRows(5);
+        jScrollPane5.setViewportView(ta_bitacora);
+
+        jLabel18.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jLabel18.setText("Bitacora");
+
+        jb_procesar.setText("Procesar");
+        jb_procesar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_procesarMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(62, 62, 62)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cb_personas2, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jb_procesar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(70, 70, 70))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cb_personas2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(jb_procesar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel18)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
+        );
+
+        jTabbedPane1.addTab("Asignar articulos", jPanel9);
+
         javax.swing.GroupLayout adminLayout = new javax.swing.GroupLayout(admin.getContentPane());
         admin.getContentPane().setLayout(adminLayout);
         adminLayout.setHorizontalGroup(
@@ -980,15 +1038,72 @@ public class Principal extends javax.swing.JFrame {
             .addComponent(jTabbedPane1)
         );
 
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Personas");
+        ARBOL.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane6.setViewportView(ARBOL);
+
+        jLabel19.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel19.setText("PUBLICO");
+
+        LISTA.setModel(new DefaultListModel());
+        jScrollPane7.setViewportView(LISTA);
+
+        jButton1.setText("Mostrar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Limpiar");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout noAdminLayout = new javax.swing.GroupLayout(noAdmin.getContentPane());
         noAdmin.getContentPane().setLayout(noAdminLayout);
         noAdminLayout.setHorizontalGroup(
             noAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(noAdminLayout.createSequentialGroup()
+                .addGroup(noAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(noAdminLayout.createSequentialGroup()
+                        .addGap(176, 176, 176)
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(noAdminLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(72, 72, 72)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(36, Short.MAX_VALUE))
+            .addGroup(noAdminLayout.createSequentialGroup()
+                .addGap(155, 155, 155)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(88, 88, 88))
         );
         noAdminLayout.setVerticalGroup(
             noAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, noAdminLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(noAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane7)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(noAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1056,22 +1171,20 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    public void cargarContenedores(){
+    public void cargarContenedores() {
         DefaultComboBoxModel mm = new DefaultComboBoxModel();
         for (Persona p : listPersonas) {
             mm.addElement(p);
         }
         cb_personas.setModel(mm);
-        
-        
+        cb_personas2.setModel(mm);
+
         DefaultComboBoxModel mm1 = new DefaultComboBoxModel();
         for (Articulo o : listArticulos) {
             mm1.addElement(o);
         }
         cb_articulos.setModel(mm1);
-        
-        
+
         DefaultTableModel mt = (DefaultTableModel) tablaPersonas.getModel();
         while (mt.getRowCount() > 0) {
             mt.removeRow(0);
@@ -1104,30 +1217,27 @@ public class Principal extends javax.swing.JFrame {
         }
         tablaArticulos.setModel(mt1);
 
-        
     }
-    
-    
+
+
     private void jb_publicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_publicoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jb_publicoActionPerformed
 
-    private void tf_IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_IDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tf_IDActionPerformed
+    private void jb_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_adminMouseClicked
+        admin.setVisible(true);
+        admin.pack();
 
-    private void jb_agregarPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_agregarPersonaMouseClicked
+    }//GEN-LAST:event_jb_adminMouseClicked
 
-    }//GEN-LAST:event_jb_agregarPersonaMouseClicked
+    private void jb_publicoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_publicoMouseClicked
+        noAdmin.setVisible(true);
+        noAdmin.pack();
+    }//GEN-LAST:event_jb_publicoMouseClicked
 
-    private void tf_nombreAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tf_nombreAncestorAdded
-
-    }//GEN-LAST:event_tf_nombreAncestorAdded
-
-    private void jb_agregarArticuloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_agregarArticuloMouseClicked
-
-
-    }//GEN-LAST:event_jb_agregarArticuloMouseClicked
+    private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
+        cargarContenedores();
+    }//GEN-LAST:event_jTabbedPane1StateChanged
 
     private void jb_agregarArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_agregarArticuloActionPerformed
         if (JUGUETE.isSelected()) {
@@ -1148,8 +1258,8 @@ public class Principal extends javax.swing.JFrame {
                 temp.setCalificacion((Integer) califArticulo.getValue());
                 temp.setCantidad(Integer.parseInt(tf_cantidad.getText()));
                 temp.setSexo((String) cb_sexoArticulo.getSelectedItem());
-                
-                temp.setCategoria((String)cb_categoriaRopa.getSelectedItem());
+
+                temp.setCategoria((String) cb_categoriaRopa.getSelectedItem());
                 temp.setColor(jb_color.getBackground());
                 listArticulos.add(temp);
             } else {
@@ -1158,17 +1268,25 @@ public class Principal extends javax.swing.JFrame {
                 temp.setCalificacion((Integer) califArticulo.getValue());
                 temp.setCantidad(Integer.parseInt(tf_cantidad.getText()));
                 temp.setSexo((String) cb_sexoArticulo.getSelectedItem());
-                
-                temp.setCategoria((String)cb_categoriaTecno.getSelectedItem());
+
+                temp.setCategoria((String) cb_categoriaTecno.getSelectedItem());
                 temp.setMarca(tf_marca.getText());
                 listArticulos.add(temp);
             }
         }
     }//GEN-LAST:event_jb_agregarArticuloActionPerformed
 
+    private void jb_agregarArticuloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_agregarArticuloMouseClicked
+
+    }//GEN-LAST:event_jb_agregarArticuloMouseClicked
+
     private void tf_cantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_cantidadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tf_cantidadActionPerformed
+
+    private void tf_nombreAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tf_nombreAncestorAdded
+
+    }//GEN-LAST:event_tf_nombreAncestorAdded
 
     private void jb_agregarPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_agregarPersonaActionPerformed
         Persona temp = new Persona();
@@ -1181,17 +1299,32 @@ public class Principal extends javax.swing.JFrame {
         }
         temp.setID(tf_ID.getText());
         temp.setCalificacion((Integer) califPersona.getValue());
+        temp.setNumArticulos((temp.getEdad() / 10 + (temp.getEdad() - ((temp.getEdad() / 10) * 10))) / 2 + 3);
+        System.out.println("->articulos: " + temp.getNumArticulos());
 
         listPersonas.add(temp);
     }//GEN-LAST:event_jb_agregarPersonaActionPerformed
 
-    private void tf_cantidad1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_cantidad1ActionPerformed
+    private void jb_agregarPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_agregarPersonaMouseClicked
+
+    }//GEN-LAST:event_jb_agregarPersonaMouseClicked
+
+    private void tf_IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_IDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tf_cantidad1ActionPerformed
+    }//GEN-LAST:event_tf_IDActionPerformed
+
+    private void jb_eliminarArticulosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_eliminarArticulosMouseClicked
+        listArticulos.remove(tablaArticulos.getSelectedRow());
+        cargarContenedores();
+    }//GEN-LAST:event_jb_eliminarArticulosMouseClicked
+
+    private void jb_modificarArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_modificarArticuloActionPerformed
+        
+    }//GEN-LAST:event_jb_modificarArticuloActionPerformed
 
     private void jb_modificarArticuloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_modificarArticuloMouseClicked
-        if (JUGUETE.isSelected()) {
-            Juguete temp = (Juguete)cb_articulos.getSelectedItem();
+        if (JUGUETE1.isSelected()) {
+            Juguete temp = (Juguete) cb_articulos.getSelectedItem();
             temp.setDescripcion(tf_descripcion1.getText());
             temp.setCalificacion((Integer) califArticulo1.getValue());
             temp.setCantidad(Integer.parseInt(tf_cantidad1.getText()));
@@ -1200,35 +1333,50 @@ public class Principal extends javax.swing.JFrame {
             temp.setDuracion(Integer.parseInt(tf_duracion1.getText()));
             temp.setEdadUso(Integer.parseInt(tf_edadUso1.getText()));
 
-            
         } else {
-            if (ROPA.isSelected()) {
-                Ropa temp = (Ropa)cb_articulos.getSelectedItem();
+            if (ROPA1.isSelected()) {
+                Ropa temp = (Ropa) cb_articulos.getSelectedItem();
                 temp.setDescripcion(tf_descripcion1.getText());
                 temp.setCalificacion((Integer) califArticulo1.getValue());
                 temp.setCantidad(Integer.parseInt(tf_cantidad1.getText()));
                 temp.setSexo((String) cb_sexoArticulo1.getSelectedItem());
-                
-                temp.setCategoria((String)cb_categoriaRopa1.getSelectedItem());
+
+                temp.setCategoria((String) cb_categoriaRopa1.getSelectedItem());
                 temp.setColor(jb_color1.getBackground());
-                
+
             } else {
-                artTecno temp = (artTecno)cb_articulos.getSelectedItem();
+                artTecno temp = (artTecno) cb_articulos.getSelectedItem();
                 temp.setDescripcion(tf_descripcion1.getText());
                 temp.setCalificacion((Integer) califArticulo1.getValue());
                 temp.setCantidad(Integer.parseInt(tf_cantidad1.getText()));
                 temp.setSexo((String) cb_sexoArticulo1.getSelectedItem());
-                
-                temp.setCategoria((String)cb_categoriaTecno1.getSelectedItem());
+
+                temp.setCategoria((String) cb_categoriaTecno1.getSelectedItem());
                 temp.setMarca(tf_marca1.getText());
-                
+
             }
         }
     }//GEN-LAST:event_jb_modificarArticuloMouseClicked
 
-    private void jb_modificarArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_modificarArticuloActionPerformed
+    private void tf_cantidad1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_cantidad1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_cantidad1ActionPerformed
+
+    private void jb_eliminarPersonasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_eliminarPersonasMouseClicked
+        listPersonas.remove(tablaPersonas.getSelectedRow());
+        cargarContenedores();
+    }//GEN-LAST:event_jb_eliminarPersonasMouseClicked
+
+    private void tf_ID1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_ID1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_ID1ActionPerformed
+
+    private void tf_nombre1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tf_nombre1AncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_nombre1AncestorAdded
+
+    private void jb_modificarPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_modificarPersonaActionPerformed
         Persona temp = (Persona)cb_personas.getSelectedItem();
-        
         temp.setNombre(tf_nombre1.getText());
         temp.setEdad(Integer.parseInt(tf_edad1.getText()));
         if (rd_M1.isSelected()) {
@@ -1238,50 +1386,65 @@ public class Principal extends javax.swing.JFrame {
         }
         temp.setID(tf_ID1.getText());
         temp.setCalificacion((Integer) califPersona1.getValue());
-
-        
-    }//GEN-LAST:event_jb_modificarArticuloActionPerformed
-
-    private void jb_modificarPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_modificarPersonaMouseClicked
-        
-    }//GEN-LAST:event_jb_modificarPersonaMouseClicked
-
-    private void jb_modificarPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_modificarPersonaActionPerformed
-        // TODO add your handling code here:
+        temp.setNumArticulos((temp.getEdad() / 10 + (temp.getEdad() - ((temp.getEdad() / 10) * 10))) / 2 + 3);
+        System.out.println("->articulos: " + temp.getNumArticulos());
     }//GEN-LAST:event_jb_modificarPersonaActionPerformed
 
-    private void tf_nombre1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tf_nombre1AncestorAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tf_nombre1AncestorAdded
+    private void jb_modificarPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_modificarPersonaMouseClicked
 
-    private void tf_ID1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_ID1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tf_ID1ActionPerformed
+    }//GEN-LAST:event_jb_modificarPersonaMouseClicked
 
-    private void jb_eliminarPersonasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_eliminarPersonasMouseClicked
-        listPersonas.remove(tablaPersonas.getSelectedRow());
-        cargarContenedores();
-    }//GEN-LAST:event_jb_eliminarPersonasMouseClicked
+    private void jb_procesarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_procesarMouseClicked
+        hiloSimillitud hilo = new hiloSimillitud((Persona) cb_personas2.getSelectedItem());
+        hilo.setListArticulos(listArticulos);
+        hilo.setTa(ta_bitacora);
+        hilo.start();
 
-    private void jb_eliminarArticulosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_eliminarArticulosMouseClicked
-        listArticulos.remove(tablaArticulos.getSelectedRow());
-        cargarContenedores();
-    }//GEN-LAST:event_jb_eliminarArticulosMouseClicked
+    }//GEN-LAST:event_jb_procesarMouseClicked
 
-    private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
-        cargarContenedores();
-    }//GEN-LAST:event_jTabbedPane1StateChanged
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        DefaultTreeModel modelo = (DefaultTreeModel) ARBOL.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelo.getRoot();
+        for (Persona p : listPersonas) {
+            DefaultMutableTreeNode nodo = new DefaultMutableTreeNode(p);
+            nodo.add(new DefaultMutableTreeNode(p.getNombre()));
+            nodo.add(new DefaultMutableTreeNode(p.getEdad()));
+            nodo.add(new DefaultMutableTreeNode(p.getID()));
+            nodo.add(new DefaultMutableTreeNode(p.getSexo()));
+            nodo.add(new DefaultMutableTreeNode(p.getCalificacion()));
 
-    private void jb_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_adminMouseClicked
-        admin.setVisible(true);
-        admin.pack();
+            DefaultMutableTreeNode articulos = new DefaultMutableTreeNode();
+            for (Articulo a : p.listArticulos) {
+                articulos.add(new DefaultMutableTreeNode(a));
+            }
+
+            nodo.add(articulos);
+            raiz.add(nodo);
+        }
+        modelo.reload();
         
-    }//GEN-LAST:event_jb_adminMouseClicked
+        DefaultListModel modelo1 = (DefaultListModel) LISTA.getModel();
+        for (Articulo a : listArticulos) {
+            if (!a.isDueno()) {
+                modelo1.addElement(a);
+            }
+        }
 
-    private void jb_publicoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_publicoMouseClicked
-        noAdmin.setVisible(true);
-        noAdmin.pack();
-    }//GEN-LAST:event_jb_publicoMouseClicked
+        LISTA.setModel(modelo1);
+
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        ARBOL.setModel(new DefaultTreeModel(new DefaultMutableTreeNode("Personas")));
+
+        DefaultListModel Modelot = (DefaultListModel) LISTA.getModel();
+        Modelot.clear();
+        LISTA.setModel(Modelot);
+    }//GEN-LAST:event_jButton2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -1319,8 +1482,10 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTree ARBOL;
     private javax.swing.JRadioButton JUGUETE;
     private javax.swing.JRadioButton JUGUETE1;
+    private javax.swing.JList<String> LISTA;
     private javax.swing.JRadioButton ROPA;
     private javax.swing.JRadioButton ROPA1;
     private javax.swing.JRadioButton TECNO;
@@ -1336,16 +1501,22 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_categoriaTecno;
     private javax.swing.JComboBox<String> cb_categoriaTecno1;
     private javax.swing.JComboBox<String> cb_personas;
+    private javax.swing.JComboBox<String> cb_personas2;
     private javax.swing.JComboBox<String> cb_sexoArticulo;
     private javax.swing.JComboBox<String> cb_sexoArticulo1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel32;
@@ -1383,14 +1554,17 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton jb_admin;
     private javax.swing.JToggleButton jb_agregarArticulo;
@@ -1401,12 +1575,14 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jb_eliminarPersonas;
     private javax.swing.JToggleButton jb_modificarArticulo;
     private javax.swing.JToggleButton jb_modificarPersona;
+    private javax.swing.JButton jb_procesar;
     private javax.swing.JButton jb_publico;
     private javax.swing.JDialog noAdmin;
     private javax.swing.JRadioButton rd_F;
     private javax.swing.JRadioButton rd_F1;
     private javax.swing.JRadioButton rd_M;
     private javax.swing.JRadioButton rd_M1;
+    private javax.swing.JTextArea ta_bitacora;
     private javax.swing.JTextArea ta_destacables;
     private javax.swing.JTextArea ta_destacables1;
     private javax.swing.JTable tablaArticulos;
@@ -1430,4 +1606,5 @@ public class Principal extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     ArrayList<Persona> listPersonas = new ArrayList();
     ArrayList<Articulo> listArticulos = new ArrayList();
+    ArrayList<Articulo> listArticulosSD = new ArrayList();
 }

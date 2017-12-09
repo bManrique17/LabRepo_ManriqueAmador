@@ -103,6 +103,11 @@ public class Persona {
     public void setListArticulosPref(ArrayList<Articulo> listArticulosPref) {
         this.listArticulosPref = listArticulosPref;
     }
+
+    @Override
+    public String toString() {
+        return nombre;
+    }
     
     
     

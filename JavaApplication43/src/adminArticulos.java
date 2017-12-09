@@ -32,6 +32,10 @@ public class adminArticulos {
         return archivo;
     }
 
+    public void setArticulo(Articulo a) {
+        listaArticulos.add(a);
+    }
+    
     public void cargarArchivo() {
         try {
             listaArticulos = new ArrayList();

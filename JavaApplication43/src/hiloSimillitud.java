@@ -58,7 +58,7 @@ public class hiloSimillitud extends Thread{
                 listArticulos.get(i).setDueno(true);
             }
             try {
-                Thread.sleep(2000);
+                Thread.sleep(20);
             } catch (InterruptedException ex) {
                 
             }

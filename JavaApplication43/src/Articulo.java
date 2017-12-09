@@ -1,7 +1,10 @@
 
+import java.io.Serializable;
 
 
-public class Articulo {
+
+
+public class Articulo implements Serializable{
     protected String descripcion,sexo;
     protected int calificacion,cantidad;
     protected boolean dueno;
@@ -14,8 +17,8 @@ public class Articulo {
         this.dueno = dueno;
     }
     
+    private static final long SerialVersionUID = 177L;
     
-
     public Articulo(String descripcion, String sexo, int calificacion, int cantidad) {
         this.descripcion = descripcion;
         this.sexo = sexo;

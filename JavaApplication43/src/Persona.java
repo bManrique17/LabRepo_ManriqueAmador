@@ -1,15 +1,18 @@
 
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Persona {
+public class Persona implements Serializable{
     protected String nombre,ID,sexo,estadoCivil;
     protected int edad,calificacion,numArticulos;
     ArrayList<String> listInfo = new ArrayList();
     ArrayList<Articulo> listArticulos = new ArrayList();
     ArrayList<Articulo> listArticulosPref = new ArrayList();
 
+    private static final long SerialVersionUID = 177L;
+    
     public Persona(String nombre, String ID, String sexo, String estadoCivil, int edad, int calificacion) {
         this.nombre = nombre;
         this.ID = ID;

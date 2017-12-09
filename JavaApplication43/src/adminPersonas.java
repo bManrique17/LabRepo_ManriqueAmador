@@ -32,6 +32,9 @@ public class adminPersonas {
         this.archivo = archivo;
     }
 
+    public void setPersona(Persona a) {
+        listaPersonas.add(a);
+    }
     
 
     public void cargarArchivo() {
